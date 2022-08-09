@@ -1,0 +1,11 @@
+current directory: /home/ania/adastamp.github.io/vendor/bundle/ruby/2.7.0/gems/wdm-0.1.1/ext/wdm
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20220805-11985-1ogld5z.rb extconf.rb
+
+current directory: /home/ania/adastamp.github.io/vendor/bundle/ruby/2.7.0/gems/wdm-0.1.1/ext/wdm
+make "DESTDIR=" clean
+
+current directory: /home/ania/adastamp.github.io/vendor/bundle/ruby/2.7.0/gems/wdm-0.1.1/ext/wdm
+make "DESTDIR="
+
+current directory: /home/ania/adastamp.github.io/vendor/bundle/ruby/2.7.0/gems/wdm-0.1.1/ext/wdm
+make "DESTDIR=" install
