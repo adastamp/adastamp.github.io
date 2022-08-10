@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Index</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/countrySelect.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="fixed-top">
+      <div class="top_header">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-xxl">
+            <a class="navbar-brand" href="#"
+              ><img src="./assets/images/logo-2.png"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#"><i class="fal fa-comment-alt-dots"></i> News</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="fal fa-comment-alt-exclamation"></i> Example</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="fal fa-file-alt"></i> Docs</a>
+               </li>
+                <li class="nav-item">
+                  <a class="nav-link login_btn" href="./login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link sign_btn" href="./register.html"
+                    >Register</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="login_section">
+      <div class="container">
+        <div class="row">
+         
+          <div class="col-lg-6 offset-lg-3">
+            <div class="page-title">
+              <div class="row align-items-center justify-content-between">
+                <div class="col-md-12">
+                  <div class="page-title-content">
+                    <h3>Kyc</h3>
+                    <p class="mb-2">Welcome to Signing Storing Kyc page</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login_from">
+            <div class="ugf-bg ufg-main-container">
+                <div class="ugf-progress">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 33.33%" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div> 
+                </div>
+                <div class="ugf-form">
+                <form action="./kyc-2.html">
+                    <div class="input-block">
+                      <h4>Issuing Country/Region</h4>
+                      <div class="country-select-wrap form-group">
+                        <input type="text" id="country" />
+                        <input type="hidden" id="country_code" />
+                      </div>    
+                    </div>
+                    <div class="input-block">
+                      <h4>Select Identity Type</h4>
+                      <p>Should be your government issue photo identity</p>
+                      <div class="custom-form-group">
+                        <input type="radio" name="package-plan" class="custom-form-control" id="nid">
+                        <label for="nid">
+                          <span class="text">National Id</span>
+                          <span class="icon">
+                            <img src="./assets/images/nid.png" class="img-fluid" alt="">
+                          </span>
+                        </label>
+                      </div>
+                      <div class="custom-form-group form-group">
+                        <input type="radio" name="package-plan" class="custom-form-control" id="passport">
+                        <label for="passport">
+                          <span class="text">Passport</span>
+                          <span class="icon">
+                            <img src="./assets/images/passport.png" class="img-fluid" alt="">
+                          </span>
+                        </label>
+                      </div>
+                      <div class="custom-form-group form-group">
+                        <input type="radio" name="package-plan" class="custom-form-control" id="dlicense">
+                        <label for="dlicense">
+                          <span class="text">Driver's License</span>
+                          <span class="icon">
+                            <img src="./assets/images/driving.png" class="img-fluid" alt="">
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-fill">Next Step &nbsp; &#10140;</button>
+                  </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-section fixed-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 copyright">
+            <p>©Migamake. All rights reserved. 2022</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 footer-menu">
+            <ul>
+              <li><a href="#">Terms &amp; conditions</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- External JS libraries -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/countrySelect.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- Custom JS Script -->
+  </body>
+</html>

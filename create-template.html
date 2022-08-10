@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/countrySelect.css" />
     <link rel="stylesheet" href="assets/css/date-picker.css" />
     <link rel="stylesheet" href="assets/css/chartist.css" />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
@@ -45,7 +45,7 @@
                   <a
                     class="nav-link active"
                     aria-current="page"
-                    href="./index.html"
+                    href="./home.html"
                     >Home</a
                   >
                 </li>
@@ -55,7 +55,8 @@
                     List</a
                   >
                 </li>
-                 <li class="nav-item profile-nav onhover-dropdown">
+                
+                <li class="nav-item profile-nav onhover-dropdown">
                   <a class="nav-link" href="#"
                     > <i class="fal fa-file-alt"></i> Docs <i class="middle fa fa-angle-down"></i></a
                   >
@@ -170,178 +171,193 @@
         </nav>
       </div>
     </header>
-    <section>
-      <div class="home_page">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 morning-sec box-col-12">
-              <div class="card profile-greeting">
-                <div class="card-body pb-0">
-                  <div class="media">
-                    <div class="media-body">
-                      <div class="greeting-user">
-                        <h4 class="f-w-600 font-primary" id="greeting">
-                          Good Afternoon
-                        </h4>
-                        <p>Here whats happing in your account today</p>
-                        <div class="whatsnew-btn">
-                          <a class="btn-fill">Whats New !</a>
+    <div class="home_page">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="form theme-form">
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Template Title</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Template Name *"
+                            data-bs-original-title=""
+                            title=""
+                          />
                         </div>
                       </div>
                     </div>
-                    <div class="badge-groups">
-                      <div class="badge f-10">
-                        <i data-feather="clock" class="fal fa-clock"></i
-                        ><span id="txt">4:55 PM</span>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Client name</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Name client or company name"
+                            data-bs-original-title=""
+                            title=""
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="cartoon">
-                    <img
-                      class="img-fluid"
-                      src="assets/images/cartoon.png"
-                      alt=""
-                    />
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Template Rate</label>
+                          <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Enter template Rate"
+                            data-bs-original-title=""
+                            title=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Project Type</label>
+                          <select class="form-select">
+                            <option>Hourly</option>
+                            <option>Fix price</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Priority</label>
+                          <select class="form-select">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                            <option>Urgent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Template Size</label>
+                          <select class="form-select">
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Big</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Starting date</label>
+                          <input
+                            class="datepicker-here form-control"
+                            type="text"
+                            data-language="en"
+                            data-bs-original-title=""
+                            title=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Ending date</label>
+                          <input
+                            class="datepicker-here form-control"
+                            type="text"
+                            data-language="en"
+                            data-bs-original-title=""
+                            title=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <div class="form-group">
+                          <label>Enter some Details</label>
+                          <textarea
+                            class="form-control"
+                            id="exampleFormControlTextarea4"
+                            rows="3"
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <label>Upload Template File</label>
+                        <form
+                          class="dropzone dz-clickable"
+                          id="singleFileUpload"
+                          action="/upload.php"
+                        >
+                          <div class="dz-message needsclick">
+                            <i class="fal fa-cloud-upload"></i>
+                            <h6>Drop files here or click to upload.</h6>
+                            <span class="note needsclick"
+                              >(This is just a demo dropzone. Selected files are
+                              <strong>not</strong> actually uploaded.)</span
+                            >
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="text-end">
+                        <a
+                          class="btn btn-success me-3"
+                          href="#"
+                          data-bs-original-title=""
+                          title=""
+                          >Add</a
+                        ><a
+                          class="btn btn-danger"
+                          href="#"
+                          data-bs-original-title=""
+                          title=""
+                          >Cancel</a
+                        >
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 calendar-sec box-col-6">
-              <div class="card gradient-primary o-hidden">
-                <div class="card-body">
-                  <div class="setting-dot">
-                    <div
-                      class="setting-bg-primary date-picker-setting pull-right"
-                    >
-                      <div class="icon-box">
-                        <i
-                          data-feather="more-horizontal"
-                          class="fal fa-ellipsis-h"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="default-datepicker">
-                    <div class="datepicker-here" data-language="en"></div>
-                  </div>
-                  <span class="default-dots-stay overview-dots full-width-dots"
-                    ><span class="dots-group"
-                      ><span class="dots dots1"></span
-                      ><span class="dots dots2 dot-small"></span
-                      ><span class="dots dots3 dot-small"></span
-                      ><span class="dots dots4 dot-medium"></span
-                      ><span class="dots dots5 dot-small"></span
-                      ><span class="dots dots6 dot-small"></span
-                      ><span class="dots dots7 dot-small-semi"></span
-                      ><span class="dots dots8 dot-small-semi"></span
-                      ><span class="dots dots9 dot-small"> </span></span
-                  ></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 chart_data_left box-col-12">
-              <div class="card">
-                <div class="card-body p-0">
-                  <div class="row m-0 chart-main">
-                    <div class="col-xl-3 col-md-6 col-sm-6 p-0 box-col-6">
-                      <div class="media align-items-center">
-                        <div class="hospital-small-chart">
-                          <div class="small-bar">
-                            <div class="small-chart flot-chart-container">
-                              <div class="chartist-tooltip"></div>
-                              <i class="fal fa-chart-bar"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="media-body">
-                          <div class="right-chart-content">
-                            <h4>1001</h4>
-                            <span>Purchase </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-6 p-0 box-col-6">
-                      <div class="media align-items-center">
-                        <div class="hospital-small-chart">
-                          <div class="small-bar">
-                            <div class="small-chart1 flot-chart-container">
-                              <div class="chartist-tooltip"></div>
-                              <i class="fal fa-chart-bar"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="media-body">
-                          <div class="right-chart-content">
-                            <h4>1005</h4>
-                            <span>Sales</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-6 p-0 box-col-6">
-                      <div class="media align-items-center">
-                        <div class="hospital-small-chart">
-                          <div class="small-bar">
-                            <div class="small-chart2 flot-chart-container">
-                              <div class="chartist-tooltip"></div>
-                              <i class="fal fa-chart-bar"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="media-body">
-                          <div class="right-chart-content">
-                            <h4>100</h4>
-                            <span>Sales return</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-6 p-0 box-col-6">
-                      <div class="media border-none align-items-center">
-                        <div class="hospital-small-chart">
-                          <div class="small-bar">
-                            <div class="small-chart3 flot-chart-container">
-                              <div class="chartist-tooltip"></div>
-                              <i class="fal fa-chart-bar"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="media-body">
-                          <div class="right-chart-content">
-                            <h4>101</h4>
-                            <span>Purchase ret</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 template_btn">
-              <a
-                class="btn btn-fill"
-                href="./template-list.html"
-                data-bs-original-title=""
-                title=""
-              >
-                Template List</a
-              >
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
     <footer class="footer-section fixed-bottom">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 copyright">
-            <p>©Signing and storing. All rights reserved. 2022</p>
+            <p>©Migamake. All rights reserved. 2022</p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 footer-menu">
             <ul>
@@ -357,12 +373,13 @@
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/countrySelect.min.js"></script>
+    <script src="assets/js/custom.js"></script>
     <script src="assets/js/datepicker.js"></script>
     <script src="assets/js/datepicker.en.js"></script>
     <script src="assets/js/datepicker.custom.js"></script>
     <script src="assets/js/config.js"></script>
     <script src="assets/js/default.js"></script>
-
     <!-- Custom JS Script -->
   </body>
 </html>
