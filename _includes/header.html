@@ -1,31 +1,30 @@
-<header class="header-section navbar-fixed-top">
-	<nav class="navbar">
-	  <div class="container">
-		
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  <a class="navbar-brand" href="{{ site.baseurl }}/"><img src="{{site.logo}}" alt="{{ site.title }}"/></a>
-		</div>
+<header class="fixed-top">
+  <div class="top_header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-xxl">
+        <a class="navbar-brand" href="#"><img src="./assets/images/logo-2.png" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
 
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav navbar-left">
-			<li><a href="{{ site.baseurl }}/"><i class="ico-home"></i>Home</a></li>
-		  </ul>
-		  
-		  <ul class="nav navbar-nav navbar-right">
-			{% for item in site.data.manu.docs %}
-			 
-			<li class="{{ item.class }}"><a href="{{ item.url }}"><i class="{{item.icon}}"></i>{{item.title}}</a></li>
-			 
-			{% endfor %}
-			
-		  </ul>
-		</div>
-	  </div>
-	</nav>
+            {% for item in site.data.manu.docs %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ item.url }}"><i class="{{item.icon}}"></i> {{item.title}}</a>
+              </li>
+            {% endfor %}
+
+            <li class="nav-item">
+              <a class="nav-link login_btn" href="/in-progress">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link sign_btn" href="/in-progress">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>

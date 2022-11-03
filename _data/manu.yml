@@ -3,24 +3,12 @@ docs:
 
 - title: News
   url: /news
-  icon: ico-news
+  icon: fal fa-comment-alt-dots
 
-- title: Demos
+- title: Example
   url: /demo
-  icon: ico-exm
-
-- title: Partners
-  url: /partners
-  icon: ico-exm
+  icon: fal fa-comment-alt-exclamation
 
 - title: Docs
-  url: /in-progress
-  icon: ico-doc
-
-- title: App Login
-  url: /in-progress
-  class: btn-brdr
-
-- title: Signup
-  url: /in-progress
-  class: btn-fill
+  url: /demo
+  icon: fal fa-file-alt
