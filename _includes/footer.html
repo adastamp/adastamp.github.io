@@ -13,3 +13,7 @@
     </div>
   </div>
 </footer>
+
+{% for script in site.data.js_asset_files.docs %}
+  <script src="/assets/js/{{ script.name }}"></script>
+{% endfor %}
