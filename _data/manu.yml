@@ -5,10 +5,14 @@ docs:
   url: /news
   icon: fal fa-comment-alt-dots
 
-- title: Example
+- title: Demo
   url: /demo
   icon: fal fa-comment-alt-exclamation
 
 - title: Docs
   url: /demo
+  icon: fal fa-file-alt
+
+- title: Features
+  url: /features
   icon: fal fa-file-alt

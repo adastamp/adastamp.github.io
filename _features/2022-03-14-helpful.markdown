@@ -1,0 +1,8 @@
+---
+title: "Helpfulness"
+date:   2022-03-14 12:54:00 +0100
+layout: feature
+image: "/assets/images/features/helpful.svg"
+---
+
+Making sure that our software is feel habitually helpful to humans, just like our team wants to be.

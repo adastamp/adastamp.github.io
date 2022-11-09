@@ -79,6 +79,9 @@ collections:
   demo:
     output: true
     permalink: /demo/:path/
+  features:
+    output: true
+    permalink: /features/:path/
   pages:
     output: true
     permalink: /:pages/:path/

@@ -1,0 +1,26 @@
+---
+layout: default
+permalink: /features/
+title: Features
+---
+
+<div class="container">
+  <div class="text-center mt-5">
+    <h1>How we work?</h1>
+    <p>Building great softwares that addresses greatest challenges.</p>
+  </div>
+  {% assign sorted_features = site.features | sort: "date" %}
+  <div class="row" >
+    {% for feature in sorted_features %}
+      <div class="col-sm-12 col-md-6 mt-5 d-flex align-items-center">
+        <div class="feature-image"><img src="{{ feature.image }}" width="150px" height="150px" /></div>
+        <div class="feature-content m-4">
+          <h1><a class="text-decoration-none text-dark" href="{{ site.baseurl }}{{ feature.url }}">{{ feature.title }}</a></h1>
+          <div class="entry">
+            {{ feature.excerpt }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
