@@ -4,12 +4,12 @@ permalink: /news/
 title: News Posts
 ---
 
-<div class="container">
-  
+<div class="container mt-5 mb-5 w-75">
+
   {% for post in site.categories['news'] %}
     <article class="post">
       <h1>
-          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          <a class="text-black text-decoration-none" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
       </h1>
       <div>
         <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>

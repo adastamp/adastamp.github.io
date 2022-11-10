@@ -137,8 +137,8 @@ a.badge.bg-default:hover {
 }
 
 @media only screen and (max-device-width: 768px){
-	
-.navbar-left { margin-left: 0;}	
+
+.navbar-left { margin-left: 0;}
 .btn-brdr{display:inline-block !important; margin:20px 20px 0 20px !important;}
 .btn-fill{display:inline-block !important; margin-top: 20px !important;}
 
@@ -155,12 +155,12 @@ a.badge.bg-default:hover {
 .navbar-right .dropdown-menu { right: auto; left: 0;}
 .ftr-social ul li { margin-left: 0px; }
 .ftr-menu ul li {line-height: 22px; }
-  
+
 }
 
 @media only screen and (max-device-width: 767px){
 
-.navbar-left { margin: 0; margin-left: 4px;}	
+.navbar-left { margin: 0; margin-left: 4px;}
 .navbar-left li { margin: 0; }
 
 .btn-brdr{display:inline-block !important; margin:20px 20px 0 20px !important;}
@@ -171,11 +171,19 @@ ul.dropdown-menu { background: #444444 !important;}
 .project-section { height: auto; }
 .field-section{ height: auto; }
 .ftr-social { margin: 10px 0; }
-  
+
 }
 
 @media only screen and (max-device-width: 767px) and (orientation: landscape){
-	
+
 .welcome-section { height: auto; }
 
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
 }
