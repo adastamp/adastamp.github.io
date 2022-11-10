@@ -29,11 +29,16 @@ exclude:
 
 plugins:
   - jekyll-gist
+  - jekyll-scholar
   #- jekyll-spaceship
   - jekyll-sitemap
   #- jekyll-paginate
   #- jekyll-feed
   #- jekyll-image-size
+
+scholar:
+  style: modern-language-association
+  source: _bibliograph/
 
 remote_theme: pages-themes/hacker@v0.2.0
 #remote_theme:  Wiredcraft/carte
