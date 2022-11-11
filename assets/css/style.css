@@ -37,7 +37,7 @@ header {
 }
 
 header {
-    border-top: 10px solid #007700;
+    border-top: 10px solid #109949;
 }
 .top_header .navbar-collapse {
 	flex-grow: 0 !important;
@@ -73,7 +73,7 @@ a.nav-link.active {
     margin-right: 5px;
     display: inline-block;
     position: relative;
-    
+
 }
 
 .onhover-dropdown {
@@ -88,7 +88,7 @@ a.nav-link.active {
     padding: 0 10px;
 }
 .top_header .navbar-collapse .onhover-show-div {
-   
+
     top: 50px;
     right: 0;
     left: unset;
@@ -214,8 +214,7 @@ a.nav-link.active {
 }
 
 .footer-section {
-	background-color: #000000;
-	padding: 10px 0;
+	background-color: #119949;
 }
 
 .copyright p {
@@ -249,12 +248,6 @@ a.nav-link.active {
 	text-decoration: none;
 	padding: 0 0 0 20px;
 }
-
-.footer-menu ul li:first-child {
-	border-right: 2px solid #fff;
-	padding: 0 20px 0 0;
-}
-
 
 .login_section {
     padding: 140px 0;
@@ -1401,7 +1394,7 @@ a.nav-link.active {
 }
 .small-chart i, .small-chart1 i, .small-chart2 i, .small-chart3 i {
     font-size: 50px;
-} 
+}
 .project-list .card {
     margin-bottom: 30px;
     border: none;
@@ -1795,8 +1788,8 @@ option {
     background: #fff !important;
 }
 .btn-check:focus + .btn, .btn:focus {
-   
-    
+
+
         outline: 0 !important;
     box-shadow: none !important;
 }
@@ -1912,7 +1905,7 @@ option {
 }
 .navbar-toggler {
     border: 1px solid #006b00 !important;
-    
+
 }
 }
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -1924,7 +1917,7 @@ option {
 }
 .navbar-toggler {
     border: 1px solid #006b00 !important;
-    
+
 }
 .col-md-6.copyright {
     text-align: center;
@@ -1934,16 +1927,16 @@ option {
 }
 .footer-menu ul {
     float: none;
-   
+
 }
 .copyright p {
     font-size: 14px;
-    
+
 }
 .footer-menu ul li a {
-  
+
     font-size: 14px;
-    
+
 }
 .project-list ul {
 
@@ -1955,7 +1948,7 @@ option {
     margin-top: 15px;
 }
 .project-list .btn-fill {
-   
+
     font-size: 16px;
     padding: 12px 25px;
 }
@@ -1964,7 +1957,7 @@ option {
 }
 .card .card-body {
     padding: 20px;
-    
+
 }
 .verify-content {
 
@@ -1978,6 +1971,6 @@ option {
 }
 .project-box {
     padding: 10px;
-    
+
 }
 }
