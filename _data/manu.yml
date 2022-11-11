@@ -1,6 +1,10 @@
 docs_list_title: StreamCardano home page.
 docs:
 
+- title: Features
+  url: /features
+  icon: fal fa-file-alt
+
 - title: News
   url: /news
   icon: fal fa-comment-alt-dots
@@ -11,8 +15,4 @@ docs:
 
 - title: Docs
   url: /demo
-  icon: fal fa-file-alt
-
-- title: Features
-  url: /features
   icon: fal fa-file-alt
