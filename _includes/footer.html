@@ -1,10 +1,22 @@
 <footer class="footer-section fixed-bottom">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 copyright">
+    <div class="row align-items-center">
+      <div class="col-md-4 copyright">
         <p>©Stream Cardano. All rights reserved. 2022</p>
       </div>
-      <div class="col-md-6 footer-menu">
+      <div class="col-md-4 ftr-social">
+        <ul class="list-inline d-flex justify-content-around p-2">
+          <li><a href="{{ site.discord }}" target="_blank"><img width="30px" src="{{ site.baseurl }}/assets/images/discord.png"/></a></li>
+          <li><a href="{{ site.keybase }}" target="_blank"><img width="30px" src="{{ site.baseurl }}/assets/images/keybase.png"/></a></li>
+          <li><a href="{{ site.telegram }}" target="_blank"  ><img width="30px" src="{{ site.baseurl }}/assets/images/telegram.png"/></a></li>
+          <li><a href="{{ site.github }}"><img width="30px" style="filter: invert(85%);" src="{{ site.baseurl }}/assets/images/github.png"/></a></li>
+          <li><a href="{{ site.facebook }}"><img width="30px" style="filter: invert(85%);" src="{{ site.baseurl }}/assets/images/facebook.png"/></a></li>
+          <li><a href="{{ site.linkedin }}"><img width="30px" style="filter: invert(85%);" src="{{ site.baseurl }}/assets/images/linkedin.png"/></a></li>
+          <li><a href="{{ site.twitter }}"><img width="30px" style="filter: invert(85%);" src="{{ site.baseurl }}/assets/images/twitter.png"/></a></li>
+          <li><a href="{{ site.mailto }}"><img width="30px" src="{{ site.baseurl }}/assets/images/email.png"/></a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 footer-menu">
         <ul>
           <li><a href="/terms">Terms &amp; conditions</a></li>
           <li><a href="/privacy">Privacy policy</a></li>
@@ -15,5 +27,5 @@
 </footer>
 
 {% for script in site.data.js_asset_files.docs %}
-  <script src="/assets/js/{{ script.name }}"></script>
+<script src="/assets/js/{{ script.name }}"></script>
 {% endfor %}
