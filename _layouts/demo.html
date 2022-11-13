@@ -10,7 +10,7 @@ title: Demo Posts
   {% for post in sorted_demos %}
     <article class="post">
       <h1>
-          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          <a href="{{ post.url }}">{{ post.title }}</a>
       </h1>
       <div>
         <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
