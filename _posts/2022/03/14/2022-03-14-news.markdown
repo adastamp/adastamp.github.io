@@ -1,14 +1,338 @@
 ---
 layout: post
-title:  "Second Catalyst project submission"
+title:  "Test markdown"
 date:   2022-03-14 15:00:00 +0100
 categories: news
 post_image: "/assets/images/news/post-header.png"
 ---
 
-Today our [second submission](https://cardano.ideascale.com/c/idea/396549)
-moved to finalization stage.
+We will show you how to call StreamCardano API using Haskell HTTP client **_wreq_**, parse the responses, test
+and debug your queries.
 
-This proposal includes all necessary milestones to reach full commercial viability, and supporting our users for the first 6 months.
+# Preliminaries
 
-We also brought up [this web page!](https://streamcardano.com).
+Lets setup the environment variables so our Haskell code
+does not hold our configuration and secrets:
+
+```sh
+export STREAMCARDANO_HOST=beta.streamcardano.dev
+export STREAMCARDANO_KEY="...your API key here..."
+```
+
+Then lets see all imports required in the code below:
+
+```haskell
+  -- Make it easy to write literal ByteString and Text values.
+  {-# LANGUAGE OverloadedStrings #-}
+  -- To Enable Generics for Serialization/Deserialization.
+  {-# LANGUAGE DeriveGeneric #-}
+  {-# LANGUAGE DeriveAnyClass #-}
+
+  -- Request Encode and Response Decodes.
+  import Data.Aeson
+  -- Pretty print the Responses.
+  import Data.Aeson.Encode.Pretty
+
+  import GHC.Generics
+
+  -- Make HTTP Requests to remote web APIs.
+  import Network.Wreq
+
+  -- Operators such as (&) and (.~).
+  import Control.Lens
+
+
+  -- To get the application key from the environment, instead of putting it unsafely within the program code.
+  import System.Environment
+
+
+  -- bytestring
+  import qualified Data.ByteString.Char8 as Char
+  import qualified Data.ByteString.Lazy as BSL
+```
+
+# Checking the service is online
+
+I suggest that you start by testing our API online.
+
+To make sure your internet connection works:
+
+```haskell
+>>> host <- ("https://" <>) <$> getEnv "STREAMCARDANO_HOST"
+>>> rb <- get $ host <> "/api/status"
+>>> rb ^? responseBody
+Just "{\"appVersionInfo\":{\"appCommit\":\"1524dcb1d7b704c87edeff803dd40e4be7be3a43\",\"appVersion\":\"0.1.0.0\",\"envName\":\"ProductionEnv\"},\"pgbouncerWorking\":true,\"postgresWorking\":true,\"triggers\":[{\"triggerEventManipulation\":\"INSERT\",\"triggerEventTable\":\"block\",\"triggerName\":\"blocks_changed\"},{\"triggerEventManipulation\":\"DELETE\",\"triggerEventTable\":\"block\",\"triggerName\":\"blocks_changed\"},{\"triggerEventManipulation\":\"UPDATE\",\"triggerEventTable\":\"block\",\"triggerName\":\"blocks_changed\"}]}"
+```
+
+You may also parse JSON response and pretty-print it:
+
+```haskell
+>>> putStrLn $ Char.unpack $ BSL.toStrict $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+{
+    "appVersionInfo": {
+        "appCommit": "1524dcb1d7b704c87edeff803dd40e4be7be3a43",
+        "appVersion": "0.1.0.0",
+        "envName": "ProductionEnv"
+    },
+    "pgbouncerWorking": true,
+    "postgresWorking": true,
+    "triggers": [
+        {
+            "triggerEventManipulation": "INSERT",
+            "triggerEventTable": "block",
+            "triggerName": "blocks_changed"
+        },
+        {
+            "triggerEventManipulation": "DELETE",
+            "triggerEventTable": "block",
+            "triggerName": "blocks_changed"
+        },
+        {
+            "triggerEventManipulation": "UPDATE",
+            "triggerEventTable": "block",
+            "triggerName": "blocks_changed"
+        }
+    ]
+}
+
+```
+
+You can also use this endpoint to check your work on the latest version of the application API library.
+
+This is the only call that does not require authorization. You may also see the [API status here](https://status.streamcardano.com/).
+
+
+## Authorization
+
+You need to set API key for anything else:
+
+```sh
+export STREAMCARDANO_KEY=${STREAMCARDANO_KEY}
+```
+
+The _`Authorization` header_ needs to be sent with the `${STREAMCARDANO_KEY}` value.
+
+```haskell
+>>> host <- ("https://" <>) <$> getEnv "STREAMCARDANO_HOST"
+>>> key <- getEnv "STREAMCARDANO_KEY"
+>>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)]
+>>> rb <- getWith opts $ host <> "/api/v1/static/last/block"
+```
+
+You have a developer key with a unique id for your application. For now, you may use all developer API at a limited rate. To deploy in production, you will get a key with
+only a limited functionality but much higher allowed query rate that permits thousands of simultaneous users.
+
+## Checking that StreamCardano is up-to-date with the Cardano network?
+
+You may now check what the last block id recorded in the database:
+
+```haskell
+>>> host <- ("https://" <>) <$> getEnv "STREAMCARDANO_HOST"
+>>> key <- getEnv "STREAMCARDANO_KEY"
+>>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)]
+>>> rb <- getWith opts $ host <> "/api/v1/static/last/block"
+>>> putStrLn $ Char.unpack $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+3922811
+```
+
+# Making a custom query
+
+To get better performance you may want to avoid transmitting unnecessary data.
+To achieve this, we will use a custom SQL query that only gets a block number, hash, and transaction count within the block:
+
+```haskell
+>>> host <- ("https://" <>) <$> getEnv "STREAMCARDANO_HOST"
+>>> key <- getEnv "STREAMCARDANO_KEY"
+>>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)] & header "Content-Type" .~ ["text/plain;charset=utf-8"]
+>>> rb <- postWith opts (host <> "/api/v1/dynamic/query") ("SELECT block_no,hash,tx_count from block order by id desc LIMIT 1" :: Char.ByteString)
+>>> putStrLn $ Char.unpack $ BSL.toStrict $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+[
+    {
+        "block_no": 3922811,
+        "hash": "\\xbd5d7e6cf58de1cadb79e9170b237c793e81138d40bf31b825e41aec34b36a10",
+        "tx_count": 2
+    }
+]
+
+```
+
+## Listing transactions of your smart contract
+
+Let’s search for the most recent transaction from any smart contract on the Testnet.
+Query would be `SELECT tx_id, value FROM datum ORDER BY tx_id DESC LIMIT 1`:
+
+```haskell
+>>> host <- ("https://" <>) <$> getEnv "STREAMCARDANO_HOST"
+>>> key <- getEnv "STREAMCARDANO_KEY"
+>>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)] & header "Content-Type" .~ ["text/plain;charset=utf-8"]
+>>> rb <- postWith opts (host <> "/api/v1/dynamic/query") ("SELECT tx_id, value FROM datum ORDER BY tx_id DESC LIMIT 1" :: Char.ByteString)
+>>> putStrLn $ Char.unpack $ BSL.toStrict $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+[
+    {
+        "tx_id": 5294399,
+        "value": {
+            "constructor": 1,
+            "fields": [
+                {
+                    "constructor": 0,
+                    "fields": [
+                        {
+                            "constructor": 0,
+                            "fields": [
+                                {
+                                    "bytes": "b2ff7b709174bfc6c65b7be977b8d7320c03f0eaa8e2f5305d1b9aad"
+                                }
+                            ]
+                        },
+                        {
+                            "constructor": 0,
+                            "fields": [
+                                {
+                                    "constructor": 0,
+                                    "fields": [
+                                        {
+                                            "int": 407011
+                                        },
+                                        {
+                                            "int": 1667831254999
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]
+
+```
+
+## Debugging your query
+
+In case you get any error, you may use post to `/api/debug/sql` and get additional debugging information:
+
+```haskell
+>>> host <- ("https://" <>) <$> getEnv "STREAMCARDANO_HOST"
+>>> key <- getEnv "STREAMCARDANO_KEY"
+>>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)] & header "Content-Type" .~ ["text/plain;charset=utf-8"]
+>>> rb <- postWith opts (host <> "/api/debug/sql") ("WITH dats AS (SELECT datum.tx_id, datum.value FROM datum, tx_out WHERE datum.tx_id=tx_out.tx_id) SELECT * FROM dats ORDER BY tx_id DESC LIMIT 1" :: Char.ByteString)
+>>> putStrLn $ Char.unpack $ BSL.toStrict $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+{
+   "CompileTime" : 0.003751576,
+   "EXPLAIN" : [
+      "Limit  (cost=3106846.97..3106846.97 rows=1 width=40)",
+      "  CTE dats",
+      "    ->  Merge Join  (cost=1690196.68..2675203.90 rows=17265723 width=917)",
+      "          Merge Cond: (tx_out.tx_id = datum.tx_id)",
+      "          ->  Index Only Scan using idx_tx_out_tx_id on tx_out  (cost=0.43..786046.51 rows=13825337 width=8)",
+      "          ->  Materialize  (cost=1592925.03..1598390.94 rows=1093182 width=917)",
+      "                ->  Sort  (cost=1592925.03..1595657.99 rows=1093182 width=917)",
+      "                      Sort Key: datum.tx_id",
+      "                      ->  Seq Scan on datum  (cost=0.00..160561.82 rows=1093182 width=917)",
+      "  ->  Sort  (cost=431643.08..474807.38 rows=17265723 width=40)",
+      "        Sort Key: dats.tx_id DESC",
+      "        ->  CTE Scan on dats  (cost=0.00..345314.46 rows=17265723 width=40)"
+   ],
+   "OrigSQL" : "WITH dats AS (SELECT datum.tx_id, datum.value              FROM datum, tx_out              WHERE datum.tx_id=tx_out.tx_id)              SELECT * FROM dats ORDER BY tx_id DESC LIMIT 1",
+   "Params" : [],
+   "SQL" : "SELECT json_agg(t) FROM (WITH dats AS (SELECT datum.tx_id, datum.value FROM (SELECT datum.* FROM datum INNER JOIN tx ON datum.tx_id = tx.id INNER JOIN (SELECT * FROM block WHERE block_no <= $1) AS block ON block.id = tx.block_id ORDER BY datum.id DESC LIMIT $2) AS datum, (SELECT tx_out.* FROM tx_out INNER JOIN tx ON tx_out.tx_id = tx.id INNER JOIN (SELECT * FROM block WHERE block_no <= $1) AS block ON block.id = tx.block_id ORDER BY tx_out.id DESC LIMIT $2) AS tx_out WHERE datum.tx_id = tx_out.tx_id) SELECT * FROM dats ORDER BY tx_id DESC LIMIT 1) AS t"
+}
+
+```
+
+# Parsing query results
+
+## Haskell Types
+
+Before you see all data from smart contract transactions on the testnet you may decode them as Haskell types.
+
+First we will create types and required instances:
+
+```haskell
+ data QueryResp = QueryResp
+   { tx_id :: Int
+   , value :: Constructor
+   } deriving (Generic, FromJSON, Show, Eq)
+
+ data Constructor = Constructor
+   { constructor :: Int
+   , fields :: [ConstructorEnum]
+   } deriving (Generic, FromJSON, Show, Eq)
+
+ data ConstructorEnum = ConstructorV Constructor | ConstructorBytesV ConstructorBytes | ConstructorIntsV ConstructorInts
+    deriving (Generic, FromJSON, Show, Eq)
+
+ data ConstructorBytes = ConstructorBytes
+   { constructor :: Int
+   , fields :: [BytesT]
+  } deriving (Generic, FromJSON, Show, Eq)
+
+ data BytesT = BytesT
+    { bytes :: String
+   } deriving (Generic, FromJSON, Show, Eq)
+
+ data ConstructorInts = ConstructorInts
+   { constructor :: Int
+   , fields :: [IntsT]
+   } deriving (Generic, FromJSON, Show, Eq)
+
+ data IntsT = IntsT
+   { int :: Int
+   } deriving (Generic, FromJSON, Show, Eq)
+```
+
+The parsing is done by `FromJSON` instances that are derived automatically.
+
+_NOTE:_ Types might change based on the data. Please validate with response body manually.
+
+## Unit tests on response body
+
+If we wanted to make unit test on API answer, we can proceed with assertion as below:
+
+```haskell
+>>> let expected =
+      [ QueryResp
+          { tx_id = 5288384
+          , value = Constructor
+                      { constructor = 1
+                      , fields = [ ConstructorV
+                                    (Constructor
+                                      { constructor = 0
+                                      , fields = [ ConstructorBytesV
+                                                    (ConstructorBytes
+                                                        {constructor = 0
+                                                        , fields = [BytesT {bytes = "f3fd66efbe0f22a66e815112c26b492edb27bda2dcd16da81832dce0"}]
+                                                        }
+                                                    )
+                                                  , ConstructorV
+                                                      (Constructor
+                                                        {constructor = 0
+                                                        , fields = [ ConstructorIntsV
+                                                                      (ConstructorInts
+                                                                        { constructor = 0
+                                                                        , fields = [IntsT {int = 393743}, IntsT {int = 1667508647999}]
+                                                                        }
+                                                                      )
+                                                                  ]
+                                                        }
+                                                      )
+                                                  ]
+                                      }
+                                    )
+                                ]
+                    }
+        }
+      ]
+>>> host <- ("https://" <>) <$> getEnv "STREAMCARDANO_HOST"
+>>> key <- getEnv "STREAMCARDANO_KEY"
+>>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)] & header "Content-Type" .~ ["text/plain;charset=utf-8"]
+>>> rb <- postWith opts (host <> "/api/v1/dynamic/query") ("WITH dats AS (SELECT datum.tx_id, datum.value FROM datum, tx_out WHERE datum.tx_id=tx_out.tx_id) SELECT * FROM dats ORDER BY tx_id DESC LIMIT 1" :: Char.ByteString)
+>>> let response = fromJSON $ fromJust $ decode $ fromJust $ rb ^? responseBody :: Result [QueryResp]
+>>> response == expected
+True
+
+```
+
+Please note that during the beta version you may want to avoid SQL `JOIN` syntax, instead of `FROM datum JOIN tx_out by datum.tx_id=tx_out.tx_id you may use FROM datum, tx_out WHERE datum.tx_id=tx_out.tx_id`.

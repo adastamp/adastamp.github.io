@@ -1,11 +1,4 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
 logo: "/assets/images/stream-logo.png"
 title: AdaStamp project
 email: migamake@migamake.com
@@ -22,7 +15,12 @@ repository:       adastamp/adastamp.github.io
 permalink: /:categories/:year/:month/:day/:title
 
 # Build settings
-markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+highlighter: rouge
+
 exclude:
   - "README.md"
   - "vendor"
@@ -30,11 +28,14 @@ exclude:
 plugins:
   - jekyll-gist
   - jekyll-scholar
-  #- jekyll-spaceship
+  - jekyll-spaceship
   - jekyll-sitemap
-  #- jekyll-paginate
-  #- jekyll-feed
-  #- jekyll-image-size
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-responsive-image
+
+paginate: 5
+paginate_path: "/news/page:num/"
 
 scholar:
   style: modern-language-association
@@ -55,15 +56,18 @@ jekyll-spaceship:
     - mermaid-processor
     - polyfill-processor
     - element-processor
+
 html_proofer:
   check_favicon: true
-  check_html: true
+  # check_html: true
   file_ignore:
     - /a.*regexp*/
     - a_string
 
-  include:
+include:
   - _pages
+  - _features
+  - _posts
 
 # links to channels
 discord: https://discord.gg/VRcs553q
@@ -91,5 +95,55 @@ collections:
   pages:
     output: true
     permalink: /:pages/:path/
+
+
+
+# Responsive images
+responsive_image:
+  # Path to the image template.
+  template: _includes/responsive-image.html
+
+  # Quality to use when resizing images.
+  default_quality: 90
+
+  # An array of resize configuration objects. Each object must contain at least
+  # a `width` value.
+  sizes:
+    - width: 20
+      quality: 10
+    - width: 480
+      quality: 80
+    - width: 800
+      quality: 90
+    - width: 1400
+      quality: 90
+
+  # working with JPGs directly from digital cameras and smartphones
+  auto_rotate: false
+
+  # `dirname` value in `output_path_format` below.
+  base_path: assets/images
+
+  # Parameters available are:
+  #   %{dirname}     Directory of the file relative to `base_path` (assets/sub/dir/some-file.jpg => sub/dir)
+  #   %{basename}    Basename of the file (assets/some-file.jpg => some-file.jpg)
+  #   %{filename}    Basename without the extension (assets/some-file.jpg => some-file)
+  #   %{extension}   Extension of the file (assets/some-file.jpg => jpg)
+  #   %{width}       Width of the resized image
+  #   %{height}      Height of the resized image
+  #
+  output_path_format: assets/images/resized/%{width}/%{basename}
+
+  # Whether or not to save the generated assets into the source folder.
+  save_to_source: false
+
+  # tags. See the "Caching" section of the README for more information.
+  cache: false
+
+  # images. This is useful for resizing images which will be referenced from stylesheets.
+  extra_images:
+    - assets/foo/bar.png
+    - assets/bgs/*.png
+    - assets/avatars/*.{jpeg,jpg}
 
 

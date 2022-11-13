@@ -4,13 +4,13 @@ permalink: /features/
 title: Features
 ---
 
-<div class="container mb-5 ">
+<div class="container mb-5 pb-5">
   <div class="text-center mt-5">
     <h1>How we work?</h1>
     <p>Building great softwares that addresses greatest challenges.</p>
   </div>
   {% assign sorted_features = site.features | sort: "date" %}
-  <div class="row" >
+  <div class="row mb-5 pb-5" >
     {% for feature in sorted_features %}
       <div class="col-sm-12 col-md-6 mt-5 d-flex align-items-center">
         <div class="feature-image"><img src="{{ feature.image }}" width="150px" height="150px" /></div>

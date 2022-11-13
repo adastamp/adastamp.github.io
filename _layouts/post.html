@@ -4,14 +4,15 @@ permalink: /news/
 title: Post
 ---
 
-<div class="container">
-  <div class="text-center">
-    <div class="post-image"><img src="{{ page.post_image }}" /></div>
-    <div class="post-content m-4">
-      <h1><a class="text-decoration-none text-dark" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h1>
-      <div class="lead w-50 mx-auto">
-        {{ page.content }}
-      </div>
+<div class="container mb-5 pb-5">
+  <div class="post-image text-center">
+    <img src="{{ page.post_image }}" />
+    <h1><a class="text-decoration-none text-dark" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h1>
+  </div>
+  <div class="mb-5 pb-5">
+    <div class=" mx-auto">
+      {{ page.content }}
     </div>
   </div>
 </div>
+
