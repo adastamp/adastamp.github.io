@@ -1,6 +1,6 @@
 docs_list_title: Javascript asset files
 docs:
 
+- name: jquery.min.js
 - name: bootstrap.min.js
 
-- name: jquery.min.js

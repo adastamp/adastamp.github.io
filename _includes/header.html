@@ -1,19 +1,19 @@
 <header class="sticky-top">
   <div class="top_header">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-xxl">
+    <div class="container-xxl">
+      <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#"><img src="/assets/images/logo-2.png" /></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse ml-auto" id="navbarNav">
           <ul class="navbar-nav">
 
             {% for item in site.data.manu.docs %}
-              <li class="nav-item">
-                <a class="nav-link" href="{{ item.url }}"><i class="{{item.icon}}"></i> {{item.title}}</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ item.url }}"><i class="{{item.icon}}"></i> {{item.title}}</a>
+            </li>
             {% endfor %}
 
             <li class="nav-item">
@@ -24,7 +24,7 @@
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </div>
 </header>
