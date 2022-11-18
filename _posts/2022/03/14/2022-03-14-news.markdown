@@ -336,3 +336,5 @@ True
 ```
 
 Please note that during the beta version you may want to avoid SQL `JOIN` syntax, instead of `FROM datum JOIN tx_out by datum.tx_id=tx_out.tx_id you may use FROM datum, tx_out WHERE datum.tx_id=tx_out.tx_id`.
+
+{% bibliography --file book %}
