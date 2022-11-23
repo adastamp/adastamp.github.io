@@ -1,8 +1,0 @@
----
-title: "Tech"
-date:   2022-03-11 12:54:00 +0100
-layout: feature
-image: "/assets/images/features/tech-transcends-tops.svg"
----
-
-Advance technology expertise allows us to transcend tops of what we thought feasible just yesterday.
