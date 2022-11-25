@@ -2,10 +2,9 @@
 ![Jekyll Version](https://img.shields.io/gem/v/jekyll.svg)
 
 ---
+This is project page for [AdaStamp](https://cardano.ideascale.com/c/idea/414067) project.
 
-This is project page for [StreamCardano](https://cardano.ideascale.com/c/idea/396549) project.
-
-The landing page is hosted on 
+The landing page is hosted on
 
 [GitLab Pages](https://pages.gitlab.io) ([documentation](https://docs.gitlab.com/ce/user/project/pages/)).
 
@@ -15,15 +14,13 @@ The landing page is hosted on
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Functionality](#functionality)
-  - [Milestones](#milestones)
 - [Register your interest](#register-your-interest)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Functionality
 
-[StreamCardano](https://cardano.ideascale.com/c/idea/396549) will make Cardano dApp creation more accessible, support dApp authors and make Cardano much easier platform to develop on.
+[AdaStamp](https://cardano.ideascale.com/c/idea/414067) will make Cardano dApp creation more accessible, support dApp authors and make Cardano much easier platform to develop on.
 
 
     Our service will be contacted by JavaScript/TypeScript/PureScript library that connects our backend to get live updates of Cardano blockchain. There will be also user interface for trying the queries during development, and setting automated runs of Cardano Wallet scripts whenever query triggers.
@@ -69,7 +66,7 @@ Within 4 months from the project start
    * features and bug fixing upon user request
    * monitoring service security
    * biweekly Q&A, and monthly use case
-   
+
    Within 12 months from project start.
 
 
