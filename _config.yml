@@ -4,7 +4,7 @@ title: AdaStamp project
 email: migamake@migamake.com
 description: > # this means to ignore newlines until "baseurl:"
   AdaStamp project home page.
-baseurl: "https://adastamp.co" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://adastamp.github.io/" # the base hostname & protocol for your site
 twitter_username: migamake
 github_username:  migamake
@@ -59,7 +59,7 @@ jekyll-spaceship:
 
 html_proofer:
   check_favicon: true
-  # check_html: true
+  check_html: true
   file_ignore:
     - /a.*regexp*/
     - a_string
