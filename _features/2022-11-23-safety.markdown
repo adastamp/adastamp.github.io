@@ -1,0 +1,24 @@
+---
+title: "Safety"
+date:   2022-03-12 12:54:00 +0100
+layout: post
+image: "/assets/images/features/creativity-circumvents-challenges.svg"
+---
+
+Documents managed by AdaStamp are stored in an encrypted form, so access is limited only to those who have access granted. And if a signing wallet has passed a Know-Your-Customer (KYC) procedure that proves signer's identity, a signature can be treated as a legally binding one.
+
+# Access rights
+
+Documents are stored on the IPFS storage in an encrypted way. The key to decrypt the document will be stored on the blockchain, encrypted by the public key (address) of the document owner. This will ensure that only a wallet of the document owner (which holds the corresponding private key) will be able to decrypt the key, and thus decrypt the document or grant access to the document to other users.
+
+A document owner can grant access to a document to specific Cardano wallets. Only the specified addresses are able to decrypt and access the document. Each access right is stored on the blockchain as a triple containing:
+
+* a document id on IFPS,
+* an address of a granted user,
+* a key to decrypt the document, encrypted by a public key (address) of a granted user.
+
+This ensures that only a wallet of a granted user (which holds the corresponding private key) will be able to decrypt the key, and thus decrypt the document.
+
+# Trusted identitied with KYC
+
+A Cardano wallet is by default not connected with a personal identity. So if we want to be sure that a correct person has signed a document in a legally binding way, that person (his/her wallet) needs to pass the Know-Your-Customer (KYC) procedure, provided by third-party entities. AdaStamp does not enforce using KYC-passed wallets, but when we use such wallets, our signatures can be used in formal and legal procedures like signing contracts.

@@ -1,0 +1,10 @@
+---
+title: "PDF Support"
+date:   2022-03-11 12:54:00 +0100
+layout: post
+image: "/assets/images/features/tech-transcends-tops.svg"
+---
+
+PDF is the most common format of electronic legal documents (contracts, orders, etc.) AdaStamp provides full support for signing PDF documents.
+
+PAdES (PDF Advanced Electronic Signature) standard and PDF tools allow to store digital signature as a part of a PDF file. Furthermore, such a signature can be created and presented in a visual way, similarly to a traditional handwritten signature. AdaStamp provides full support for visual signatures stored within PDF file. An Adobe Acrobat plugin allows to create an AdaStamp signature. This signature is normally stored in the blockchain, but can be additionally stored within  a PDF document, and visible in Adobe Acrobat and other PDF tools. So users can use either a source PDF and a signature stored on the blockchain, or a self-contained PDF with the same signature inside.
