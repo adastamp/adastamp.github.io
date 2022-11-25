@@ -7,15 +7,19 @@ title: News Posts
 <div class="container mt-5 mb-5 w-75">
 
   {% for post in site.categories['news'] %}
-    <article class="post">
-      <h1>
+    <article class="post mb-3">
+      <div class="d-flex align-items-center">
+        <h3 class="mr-4 mb-0">
           <a class="text-black text-decoration-none" href="{{ post.url }}">{{ post.title }}</a>
-      </h1>
-      <div>
-        <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
+        </h3>
+        <small class="post_date">{{ post.date | date: "%B %e, %Y" }}</small>
       </div>
-      <div class="entry">
-        {{ post.excerpt }}
+      <div class="entry post-description">
+        {% if post.description %}
+          <p>{{ post.description }}</p>
+        {% else %}
+          {{ post.excerpt }}
+        {% endif %}
       </div>
     </article>
   {% endfor %}

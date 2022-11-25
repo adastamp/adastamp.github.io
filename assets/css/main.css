@@ -275,3 +275,12 @@ table td { border: 1px solid #e8e8e8; }
 .highlight .il { color: #099; }
 
 /*# sourceMappingURL=main.css.map */
+
+.post-description p {
+    margin-bottom: 1rem;
+    font-size: 0.875em;
+    color: #6c757d;
+}
+.post-description p::before {
+  content: "— ";
+}
