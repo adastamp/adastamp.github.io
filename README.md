@@ -68,4 +68,4 @@ Each signing workflow will be implemented as a separate smart contract that embo
 
 # Register your interest
 
-Do you want to join our mailing list, and closed beta? [Register here](adastamp@migamake.com)?
+Do you want to join our mailing list, and closed beta? [Register here](mail-to:adastamp@migamake.com)?
