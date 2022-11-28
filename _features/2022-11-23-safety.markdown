@@ -2,7 +2,7 @@
 title: "Safety"
 date:   2022-03-12 12:54:00 +0100
 layout: post
-image: "/assets/images/features/creativity-circumvents-challenges.svg"
+image: "/assets/images/features/safe-box.png"
 ---
 
 Documents managed by AdaStamp are stored in an encrypted form, so access is limited only to those who have access granted. And if a signing wallet has passed a Know-Your-Customer (KYC) procedure that proves signer's identity, a signature can be treated as a legally binding one.

@@ -2,14 +2,14 @@
 title: "Openness"
 date:   2022-03-14 12:54:00 +0100
 layout: post
-image: "/assets/images/features/helpful.svg"
+image: "/assets/images/features/open-source1.png"
 ---
 
 AdaStamp is a total opposite of a proprietary solution. Documents and signatures are stored in a decentralized way. And the solution itself is an open-source set of libraries that can be used by developers of smart contracts and dApps.
 
 # Open, decentralized storage
 
-Both documents and their signatures are stored in a totally distributed way: documents on the IPFS storage, and signatures on the blockchain. Access rights to documents are also stored on the blockchain. There is no single proprietary solution nor entity that is required to manage documents and signatures. The datum format is open and documented, so one can even prepare an alternative solution that manages AdaStamp documents and signatures without using AdaStamp libraries at all. 
+Both documents and their signatures are stored in a totally distributed way: documents on the IPFS storage, and signatures on the blockchain. Access rights to documents are also stored on the blockchain. There is no single proprietary solution nor entity that is required to manage documents and signatures. The datum format is open and documented, so one can even prepare an alternative solution that manages AdaStamp documents and signatures without using AdaStamp libraries at all.
 
 # Open-source developer libraries
 

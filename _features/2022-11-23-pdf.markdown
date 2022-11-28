@@ -2,7 +2,7 @@
 title: "PDF Support"
 date:   2022-03-11 12:54:00 +0100
 layout: post
-image: "/assets/images/features/tech-transcends-tops.svg"
+image: "/assets/images/features/pdf.png"
 ---
 
 PDF is the most common format of electronic legal documents (contracts, orders, etc.) AdaStamp provides full support for signing PDF documents.

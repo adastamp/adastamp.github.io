@@ -2,7 +2,7 @@
 title: "Sign and Store"
 date:   2022-03-10 12:54:00 +0100
 layout: post
-image: "/assets/images/features/science-steels-solutions.svg"
+image: "/assets/images/features/agreement.png"
 ---
 
 AdaStamp lets you store and sign documents in a totally decentralized way. Documents are stored on IPFS storage. Signatures are stored on the Cardano blockchain. There is no centralized service provider. You can specify signers of your document, and they will be notified about the need to sign. You will be notified as soon as the document gets signed by everyone.
