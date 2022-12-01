@@ -5,6 +5,8 @@ date:   2022-03-14 15:00:00 +0100
 categories: news
 description: AdaStream API
 post_image: "/assets/images/news/post-header.png"
+github_link: https://github.com
+gitlab_link: https://gitlab.com
 ---
 
 We will show you how to call StreamCardano API using Haskell HTTP client **_wreq_**, parse the responses, test

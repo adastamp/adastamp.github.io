@@ -2879,3 +2879,14 @@ a.badge.bg-default:hover {
 .text-left {
   text-align: left;
 }
+
+.github-fork-ribbon:before{
+    background-color: #333;
+}
+
+.github-fork-ribbon{
+  z-index: 0;;
+}
+.gitlab-fork-ribbon:before{
+  background-color: #fc6d26d9;
+}

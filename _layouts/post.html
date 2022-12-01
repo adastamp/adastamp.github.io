@@ -4,13 +4,20 @@ permalink: /news/
 title: Post
 ---
 
-<div class="container mb-5 pb-5">
+<div class="container mb-5 pb-5 position-relative">
   <div class="post-image text-center">
+    {% if page.github_link %}
+      <a class="github-fork-ribbon" href="{{ page.github_link }}" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+    {% endif %}
+    {% if page.gitlab_link %}
+      <a class="github-fork-ribbon gitlab-fork-ribbon left-top" href="{{ page.gitlab_link }}" data-ribbon="Fork me on GitLab" title="Fork me on GitLab">Fork me on GitLab</a>
+    {% endif %}
     <img alt="{{ page.title }} " src="{{ page.post_image }}" />
     <h1><a class="text-decoration-none text-dark" href="{{ page.url }}">{{ page.title }}</a></h1>
   </div>
   <div class="mb-5 pb-5">
     <div class=" mx-auto">
+
       {% include anchor_headings.html html=content anchorBody="#" %}
     </div>
   </div>
