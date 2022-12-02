@@ -7,6 +7,7 @@ description: AdaStream API
 post_image: "/assets/images/news/post-header.png"
 github_link: https://github.com
 gitlab_link: https://gitlab.com
+author: Aravind Gopal Mallapureddy, Michal J. Gajda
 ---
 
 We will show you how to call StreamCardano API using Haskell HTTP client **_wreq_**, parse the responses, test
