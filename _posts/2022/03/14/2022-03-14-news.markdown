@@ -71,7 +71,7 @@ Just "{\"appVersionInfo\":{\"appCommit\":\"1524dcb1d7b704c87edeff803dd40e4be7be3
 You may also parse JSON response and pretty-print it:
 
 ```haskell
->>> putStrLn $ Char.unpack $ BSL.toStrict $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+>>> BSL.putStrLn $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
 {
     "appVersionInfo": {
         "appCommit": "1524dcb1d7b704c87edeff803dd40e4be7be3a43",
@@ -135,7 +135,7 @@ You may now check what the last block id recorded in the database:
 >>> key <- getEnv "STREAMCARDANO_KEY"
 >>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)]
 >>> rb <- getWith opts $ host <> "/api/v1/static/last/block"
->>> putStrLn $ Char.unpack $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+>>> Char.putStrLn $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
 3922811
 ```
 
@@ -149,7 +149,7 @@ To achieve this, we will use a custom SQL query that only gets a block number, h
 >>> key <- getEnv "STREAMCARDANO_KEY"
 >>> let opts = defaults & header "Authorization" .~ ["Bearer " <> (Char.pack key)] & header "Content-Type" .~ ["text/plain;charset=utf-8"]
 >>> rb <- postWith opts (host <> "/api/v1/dynamic/query") ("SELECT block_no,hash,tx_count from block order by id desc LIMIT 1" :: Char.ByteString)
->>> putStrLn $ Char.unpack $ BSL.toStrict $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
+>>> BSL.putStrLn  $ encodePretty (fromJust $ decode $ fromJust $ rb ^? responseBody :: Value)
 [
     {
         "block_no": 3922811,
