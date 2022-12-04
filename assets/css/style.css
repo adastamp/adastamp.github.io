@@ -2890,3 +2890,23 @@ a.badge.bg-default:hover {
 .gitlab-fork-ribbon:before{
   background-color: #fc6d26d9;
 }
+
+.share-page {
+  text-align: center;
+  background: #119949;
+  color: #fff;
+  padding: 10px 0;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.share-page     a {
+  font-weight: 700;
+  color: #fff;
+}
+
+.disabled-share-btn {
+    opacity: 1 !important;
+}
