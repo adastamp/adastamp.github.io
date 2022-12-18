@@ -1824,7 +1824,7 @@ option {
 .text-success {
     color: #51BB25 !important;
 }
-.table tr td, .table tr th {
+/* .table tr td, .table tr th {
     border-bottom: 1px solid #e5e5e5;
     vertical-align: middle;
     padding: 18px;
@@ -1850,7 +1850,7 @@ option {
 .table tr td a {
     text-decoration: none;
     color: #00b4ee;
-}
+} */
 .modal-backdrop.show {
     opacity: .5;
     display: none;

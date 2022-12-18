@@ -1,0 +1,9 @@
+Feature,AdaStamp,PDF embedded (Adobe),DocuSign on Ethereum,HelloSign,Scrive,PandaDoc
+Compliant with legal regulations and be accepted by courts,Yes, if the signing wallets have passed a compliant KYC procedure,Yes, with QES,Yes,Yes
+signature visible in a document,Yes (M2),Yes,No,Yes,Yes,Yes
+storage of documents,Yes,No,No,Yes,Yes,Yes
+Sharing of documents, notifications, etc.,Yes,No,No,Yes
+Signing workflow,Planned for M3,No,No,Yes,Yes,Yes
+Document templates, filling forms,Planned for M2,Yes,No,Yes,Yes
+Open-source solution,Yes,No,No,No,No,No
+Distributed, non-proprietary storage,Yes,N/A (no storage),N/A (no storage),No,No
