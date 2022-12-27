@@ -1,9 +1,9 @@
-Feature,AdaStamp,PDF embedded (Adobe),DocuSign on Ethereum,HelloSign,Scrive,PandaDoc
-Compliant with legal regulations and be accepted by courts,Yes, if the signing wallets have passed a compliant KYC procedure,Yes, with QES,Yes,Yes
-signature visible in a document,Yes (M2),Yes,No,Yes,Yes,Yes
-storage of documents,Yes,No,No,Yes,Yes,Yes
-Sharing of documents, notifications, etc.,Yes,No,No,Yes
-Signing workflow,Planned for M3,No,No,Yes,Yes,Yes
-Document templates, filling forms,Planned for M2,Yes,No,Yes,Yes
-Open-source solution,Yes,No,No,No,No,No
-Distributed, non-proprietary storage,Yes,N/A (no storage),N/A (no storage),No,No
+Feature,AdaStamp,PDF embedded (Adobe),DocuSign on Ethereum,HelloSign,Scrive,PandaDoc,Open-pdf-sign 
+Compliant with legal regulations and be accepted by courts,"Yes, if the signing wallets have passed a compliant KYC procedure","Yes, with QES",Yes,Yes,Yes,Yes,"Yes, if signed with a ""trusted"" certificate"
+Signature visible in a document,Yes (M2),Yes,No,Yes,Yes,Yes,Yes
+Storage of documents,Yes,No,No,Yes,Yes,Yes,No
+"Sharing of documents, notifications, etc.",Yes,No,No,Yes,Yes,Yes,No
+Signing workflow,"No, excluded from the project",No,No,Yes,Yes,Yes,No
+"Document templates, filling forms","No, excluded from the project",Yes,No,Yes,Yes,Yes,No
+Open-source solution,Yes,No,No,No,No,No,Yes
+"Distributed, non-proprietary storage",Yes,N/A (no storage),N/A (no storage),No,No,No,N/A (no storage
