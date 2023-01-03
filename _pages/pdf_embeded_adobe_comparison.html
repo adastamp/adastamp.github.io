@@ -1,0 +1,34 @@
+---
+layout: default
+permalink: /comparison/pdf_embedded_(adobe)
+title: Adastamp vs PDF embedded (Adobe) Comparison Table
+column_number: 3
+---
+
+<div class="container my-5 py-5">
+  <h1><em> {{page.title}}</h1>
+  <table class="table table-hover">
+    <thead class="font-weight-bold">
+      <tr>
+      {% for header in site.data.comparison.keys %}
+      {% if forloop.index0 <=1 or forloop.index0 == page.column_number %}
+        <td>{{header}}</td>
+      {% endif %}
+        {% continue %}
+      {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in site.data.comparison.content %}
+      <tr>
+        {% for column in row %}
+        {% assign columnNumber = forloop.index0 %}
+        {% if columnNumber <= 1 or columnNumber == page.column_number %}
+          <td>{{column}}</td>
+        {% endif %}
+      {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

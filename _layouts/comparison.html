@@ -5,13 +5,22 @@ title: Comparison Table
 ---
 
 <div class="container my-5 py-5">
-  <h1>Comparison Table</h1>
+  <h1><em>Comparison Table</em></h1>
   <table class="table table-hover">
     <thead class="font-weight-bold">
       <tr>
-      {% for header in site.data.comparison.keys %}
-        <td>{{header}}</td>
-      {% endfor %}
+        {% for header in site.data.comparison.keys %}
+          {% assign header_link = header | downcase | split: " " | join: '_' %}
+          <td>
+            {% if forloop.index0 <= 1 %}
+              {{header}}
+              {% continue %}
+            {% endif %}
+            <a class="nav-link" href="/comparison/{{ header_link }}">
+              {{header}}
+            </a>
+          </td>
+        {% endfor %}
       </tr>
     </thead>
     <tbody>
@@ -26,37 +35,3 @@ title: Comparison Table
   </table>
 </div>
 
-{% assign arraySize = site.data.comparison.keys.size | minus: 1  %}
-
-{% for arr in (0..arraySize) %}
-  {% if arr <= 1 %}
-    {% continue %}
-  {% endif %}
-    <div class="container my-5 py-5">
-      <h1><em>AdaStamp vs {{site.data.comparison.keys[arr]}}</em> Comparison Table </h1>
-      <table class="table table-hover">
-        <thead class="font-weight-bold">
-          <tr>
-          {% for header in site.data.comparison.keys %}
-          {% if forloop.index0 <=1 or forloop.index0 == arr %}
-            <td>{{header}}</td>
-          {% endif %}
-            {% continue %}
-          {% endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          {% for row in site.data.comparison.content %}
-          <tr>
-            {% for column in row %}
-            {% assign columnNumber = forloop.index0 %}
-            {% if columnNumber <= 1 or columnNumber == arr %}
-              <td>{{column}}</td>
-            {% endif %}
-          {% endfor %}
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-{% endfor %}

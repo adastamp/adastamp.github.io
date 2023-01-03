@@ -13,6 +13,6 @@ docs:
   url: /demo
   icon: fal fa-comment-alt-exclamation
 
-- title: Docs
-  url: /demo
+- title: Comparison
+  url: /comparison
   icon: fal fa-file-alt
